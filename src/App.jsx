@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Layout from "./layouts/Layout.jsx";
+import Layout from "./layouts/TempLayout.jsx";
 
 // pages
 
