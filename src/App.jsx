@@ -179,7 +179,7 @@ import ScrutinyViewFiles from "./pages/scrutiny/ScrutinyViewFiles.jsx";
 import ScrutinyLayout from "./components/scrutiny/ScrutinyLayout.jsx";
 import DepartmentLogin from "./pages/DepartmentLogin.jsx";
 import Chatbot from "./components/Chatbot.jsx";
-import AdminChangeRequestList from "./pages/admin/AdminchangerequestList.jsx";
+import AdminChangeRequestList from "./pages/admin/Adminchangerequestlist.jsx";
 import UnregisterList from "./pages/scrutiny/Unregisterlist .jsx";
 import UnregistrationProjectDetails from "./pages/scrutiny/Unregistrationprojectdetails.jsx";
 
