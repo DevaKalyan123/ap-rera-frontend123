@@ -193,7 +193,7 @@ const OTPLogin = () => {
       </div>
 
       {/* PAN ERROR POPUP */}
-      {showPopup && (
+      {showPopup && (   
         <div className="otplogin-popup-overlay">
           <div className="otplogin-popup-box">
             <p>Please enter a valid PAN number</p>
