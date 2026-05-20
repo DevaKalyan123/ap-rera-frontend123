@@ -95,11 +95,8 @@ const handleValidatedChange = (e, onChange) => {
 };
 
 // ─── SUB-SECTION CONFIGS ─────────────────────────────────────────────────────
-
 export const PROMOTER_DETAILS_SUBSECTIONS = [
- 
   {
-    
     id: "bank_account",
     label: "Bank Account Details",
     fields: [
@@ -169,11 +166,11 @@ function BankAccountSection({ fields, formValues, onChange }) {
               placeholder={`Enter ${f.label}`} />
           </FieldWrap>
         ))}
-        <FieldWrap label="Supporting Documents ">
+        <FieldWrap label="Upload Document">
           <input
             style={S.input}
             type="file"
-            name="bankSupporting Documents"
+            name="bankDocument"
             accept="application/pdf"
             onChange={(e) => {
               const file = e.target.files[0];
@@ -200,14 +197,14 @@ function PromoterPersonalSection({ fields, onChange, tableData, setTableData, pr
   const [selectedField, setSelectedField] = useState("");
   const [oldValue, setOldValue] = useState("");
   const [newValue, setNewValue] = useState("");
-  const [remarks, setRemarks] = useState("");
-  const [supportingdocumentsFile, setSupportingDocumentsFile] = useState(null);
+  const [description, setDescription] = useState("");
+  const [documentFile, setDocumentFile] = useState(null);
 
   const selectedFieldData = fields.find((f) => f.name === selectedField);
 
   const resetForm = () => {
     setSelectedField(""); setOldValue(""); setNewValue("");
-    setRemarks(""); setSupportingDocumentsFile(null);
+    setDescription(""); setDocumentFile(null);
   };
 
   const handleAdd = () => {
@@ -326,12 +323,9 @@ if (selectedField === "panNumber") {
       fieldName: selectedField,
       oldValue: oldValue.trim() || "-",
       newValue: newValue.trim(),
-      remarks: remarks.trim() || "-",
-      supportingdocuments: supportingdocumentsFile?.name || "-",
-      supportingdocumentsUrl: supportingdocumentsFile
-  ? URL.createObjectURL(supportingdocumentsFile)
-  : "",
-      supportingdocumentsUrl: supportingdocumentsFile ? URL.createObjectURL(supportingdocumentsFile) : "",
+      description: description.trim() || "-",
+      document: documentFile?.name || "-",
+      documentUrl: documentFile ? URL.createObjectURL(documentFile) : "",
     };
 
     const updated = [...tableData, newRow];
@@ -372,26 +366,26 @@ if (selectedField === "panNumber") {
             const val = e.target.value;
             setSelectedField(val);
 
-            let currentExisting = "";
+            let currentOld = "";
             if (previewData && previewData.promoter_details) {
               const p = previewData.promoter_details;
-              if (val === "promoterName") currentExisting = p["Promoter Name"] || "";
-              else if (val === "fatherName") currentExisting = p["Father Name"] || "";
-              else if (val === "mobileNumber") currentExisting = p["Mobile Number"] || "";
-              else if (val === "emailId") currentExisting = p["Email"] || "";
-              else if (val === "aadhaarNumber") currentExisting = p["Aadhaar"] || "";
-              else if (val === "gstNumber") currentExisting = p["GST Number"] || "";
-              else if (val === "licenseNumber") currentExisting = p["License Number"] || "";
+              if (val === "promoterName") currentOld = p["Promoter Name"] || "";
+              else if (val === "fatherName") currentOld = p["Father Name"] || "";
+              else if (val === "mobileNumber") currentOld = p["Mobile Number"] || "";
+              else if (val === "emailId") currentOld = p["Email"] || "";
+              else if (val === "aadhaarNumber") currentOld = p["Aadhaar"] || "";
+              else if (val === "gstNumber") currentOld = p["GST Number"] || "";
+              else if (val === "licenseNumber") currentOld = p["License Number"] || "";
               else if (val === "licenseDate") {
-                currentExisting = p["License Issued Date"] || "";
-                if (currentOld) currentExisting = currentOld.split("T")[0];
+                currentOld = p["License Issued Date"] || "";
+                if (currentOld) currentOld = currentOld.split("T")[0];
               }
-              else if (val === "websiteUrl") currentExisting = p["Promoter Website"] || "";
-              else if (val === "panNumber") currentExisting = p["PAN"] || "";
-              else if (val === "landlineNumber") currentExisting = p["Landline"] || "";
+              else if (val === "websiteUrl") currentOld = p["Promoter Website"] || "";
+              else if (val === "panNumber") currentOld = p["PAN"] || "";
+              else if (val === "landlineNumber") currentOld = p["Landline"] || "";
               
             }
-            setOldValue(currentExisting); setNewValue("");
+            setOldValue(currentOld); setNewValue("");
           }}
         >
           <option value="">-- Select Field --</option>
@@ -406,7 +400,7 @@ if (selectedField === "panNumber") {
         <>
           {/* Row 1: Old + New */}
           <div style={{ ...S.grid2, marginBottom: "16px" }}>
-            <FieldWrap label={`Existing ${selectedFieldData.label}`}>
+            <FieldWrap label={`Old ${selectedFieldData.label}`}>
               <input
                 style={{ ...S.input, backgroundColor: "#f0f0f0" }}
                 type={selectedFieldData.type}
@@ -472,16 +466,16 @@ if (selectedField === "panNumber") {
 
           {/* Row 2: Description + Upload */}
           <div style={{ ...S.grid2, marginBottom: "16px" }}>
-            <FieldWrap label="Remarks">
+            <FieldWrap label="Description">
               <textarea
                 style={{ ...S.textarea }}
                 rows={3}
-                value={remarks}
-                onChange={(e) => setRemarks(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 placeholder="Enter reason for this change..."
               />
             </FieldWrap>
-            <FieldWrap label="Supporting Document (optional) ">
+            <FieldWrap label="Upload Supporting Document">
               <input
                 style={S.input}
                 type="file"
@@ -495,12 +489,12 @@ if (selectedField === "panNumber") {
                     return;
                   }
 
-                  setSupportingDocumentsFile(file);
+                  setDocumentFile(file);
                 }}
               />
-              {supportingdocumentsFile && (
+              {documentFile && (
                 <div style={{ fontSize: "12px", marginTop: "4px", color: "#1a7a3c" }}>
-                  📄 {supportingdocumentsFile.name}
+                  📄 {documentFile.name}
                 </div>
               )}
             </FieldWrap>
@@ -514,15 +508,15 @@ if (selectedField === "panNumber") {
       </div>
 
       {/* ── TABLE ── */}
-     {tableData.length > 0 && (
+      {tableData.length > 0 && (
         <table style={S.table}>
           <thead>
             <tr>
               <th style={S.th}>Field</th>
-              <th style={S.th}>Existing Value</th>
+              <th style={S.th}>Old Value</th>
               <th style={S.th}>New Value</th>
-              <th style={S.th}>Remarks</th>
-              <th style={S.th}>Supporting Documents </th>
+              <th style={S.th}>Description</th>
+              <th style={S.th}>Document</th>
               <th style={{ ...S.th, width: "60px" }}>Action</th>
             </tr>
           </thead>
@@ -532,11 +526,11 @@ if (selectedField === "panNumber") {
                 <td style={{ ...S.td, fontWeight: "600", color: "#0f3460" }}>{row.field}</td>
                 <td style={{ ...S.td, color: "#6b7c93" }}>{row.oldValue}</td>
                 <td style={{ ...S.td, color: "#1a7a3c", fontWeight: "600" }}>{row.newValue}</td>
-                <td style={S.td}>{row.remarks}</td>
+                <td style={S.td}>{row.description}</td>
                 <td style={S.td}>
-                  {row.supportingdocumentsUrl
-                    ? <a href={row.supportingdocumentsUrl} target="_blank" rel="noopener noreferrer"
-                      style={{ color: "#0f3460", fontWeight: "600" }}>{row.supportingdocuments}</a>
+                  {row.documentUrl
+                    ? <a href={row.documentUrl} target="_blank" rel="noopener noreferrer"
+                      style={{ color: "#0f3460", fontWeight: "600" }}>{row.document}</a>
                     : "-"}
                 </td>
                 <td style={{ ...S.td, textAlign: "center" }}>
@@ -595,7 +589,6 @@ function Promoter2Section({ fields, formValues, onChange }) {
 
 // ─── MAIN EXPORT ──────────────────────────────────────────────────────────────
 export default function PromoterDetailsForm({
-   
   subSectionId,
   formValues = {},
   onChange = () => { },
@@ -603,51 +596,27 @@ export default function PromoterDetailsForm({
   setTableStore = () => { },
   previewData
 }) {
-  
-  const subSections = PROMOTER_DETAILS_SUBSECTIONS;
+  const subSection = PROMOTER_DETAILS_SUBSECTIONS.find((s) => s.id === subSectionId);
+  if (!subSection) return null;
 
   const tableData = tableStore[subSectionId] || [];
   const setTableData = (rows) => setTableStore((prev) => ({ ...prev, [subSectionId]: rows }));
 
-return (
-  <>
-   
+  switch (subSectionId) {
+    case "bank_account":
+      return <BankAccountSection fields={subSection.fields} formValues={formValues} onChange={onChange} />;
+    case "promoter_personal":
+      return (
+        <PromoterPersonalSection
+          fields={subSection.fields}
+          onChange={onChange}
+          tableData={tableData}
+          setTableData={setTableData}
+          previewData={previewData}
+        />
+      );
 
-    {/* ✅ EXISTING CODE */}
-    {subSections
-      .filter((section) => section.id === subSectionId)
-      .map((section) => {
-        const tableData = tableStore[section.id] || [];
-
-        return (
-          <div key={section.id} style={{ marginBottom: "30px" }}>
-            <h3>{section.label}</h3>
-
-            {section.id === "bank_account" && (
-              <BankAccountSection
-                fields={section.fields}
-                formValues={formValues}
-                onChange={onChange}
-              />
-            )}
-
-            {section.id === "promoter_personal" && (
-              <PromoterPersonalSection
-                fields={section.fields}
-                onChange={onChange}
-                tableData={tableData}
-                setTableData={(rows) =>
-                  setTableStore((prev) => ({
-                    ...prev,
-                    [section.id]: rows,
-                  }))
-                }
-                previewData={previewData}
-              />
-            )}
-          </div>
-        );
-      })}
-  </>
-);
+    default:
+      return null;
+  }
 }
