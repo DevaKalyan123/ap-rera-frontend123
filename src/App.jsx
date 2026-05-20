@@ -71,7 +71,7 @@ import Preview from "./pages/Preview.jsx";
 import Payment from "./pages/Payment.jsx";
 import ContactUs from "./pages/contactus.jsx";
 import Promoter_Profile from "./pages/Promoter_Profile";
-import ProjectDetails from "./pages/ProjectDetails.jsx";
+import ProjectDetails from "./pages/projectDetails.jsx";
 import DevelopmentDetails from "./pages/DevelopmentDetails.jsx";
 import AssociateDetails from "./pages/AssociateDetails.jsx";
 import HomePage from "./pages/HomePage.jsx";
