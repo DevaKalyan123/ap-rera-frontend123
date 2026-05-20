@@ -85,7 +85,7 @@ import ProjectApplicationDetails from "./pages/projectapplicationdetails.jsx";
 import ExtensionProcess from "./pages/ExtensionProcess.jsx";
 import ExtensionPaymentPage from "./pages/ExtensionPaymentPage.jsx";
 import Certificate from "./pages/Certificate.jsx";
-import OtpLogin from "./pages/OtpLogin.jsx";
+import OtpLogin from "./pages/OTPLogin.jsx";
 import InformProject from "./pages/InformProject.jsx";
 import ProjectPreview from "./pages/ProjectPreview.jsx";
 import AgentDashboard from "./pages/AgentDashboard.jsx";
@@ -366,7 +366,7 @@ function App() {
             <Route path="/extensionprocess" element={<ExtensionProcess />} />
             <Route path="/extensionpaymentpage" element={<ExtensionPaymentPage />} />
             <Route path="/certificate" element={<Certificate />} />
-            <Route path="/otplogin" element={<OtpLogin />} />
+            <Route path="/otplogin" element={<OTPLogin />} />
             <Route path="/InformProject" element={<InformProject />} />
             <Route path="/agent-dashboard" element={<AgentDashboard />} />
             <Route path="/paymentpage" element={<PaymentPage />} />
