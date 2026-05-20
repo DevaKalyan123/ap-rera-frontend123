@@ -85,7 +85,7 @@ import ProjectApplicationDetails from "./pages/projectapplicationdetails.jsx";
 import ExtensionProcess from "./pages/ExtensionProcess.jsx";
 import ExtensionPaymentPage from "./pages/ExtensionPaymentPage.jsx";
 import Certificate from "./pages/Certificate.jsx";
-import OTPLogin from "./pages/Otplogin.jsx";
+import OTPLogin from "./pages/OtpLogin.jsx";
 import InformProject from "./pages/InformProject.jsx";
 import ProjectPreview from "./pages/ProjectPreview.jsx";
 import AgentDashboard from "./pages/AgentDashboard.jsx";
