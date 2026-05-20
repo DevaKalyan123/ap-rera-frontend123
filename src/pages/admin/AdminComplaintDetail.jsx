@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import "../../styles/admin/AdminComplaintDetail.css";
+import "../../styles/admin/admincomplaintdetail.css";
 
 const DOC_BASE_URL = "https://0jv8810n-8080.inc1.devtunnels.ms/api/complint/document/";
 
