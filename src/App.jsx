@@ -458,7 +458,7 @@ function App() {
             />
             <Route path="/admin/complaintdetails" element={<AdminComplaintsDetailss />} />
             <Route path="/complaintstatus" element={<ComplaintStatusForm />} />
-            // Admin Renewal Dashboard
+            // Admin Renewal dashboard
             <Route
               path="/admin/renewal"
               element={
