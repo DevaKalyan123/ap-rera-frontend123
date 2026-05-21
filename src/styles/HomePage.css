@@ -2370,3 +2370,270 @@ background: linear-gradient(
 .aboutrera{
   color: #5c1717;
 }
+/* =========================================
+   MOBILE RESPONSIVE CSS
+   FOR COMPLETE HOME PAGE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* =========================
+     BODY FIX
+  ========================= */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* =========================
+     TOP HEADER
+  ========================= */
+  .hp-home-new-top-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .home-new-logo-center img {
+    height: 55px;
+  }
+
+  .home-new-logo-center h1 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .home-new-search-btn {
+    position: static;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* =========================
+     MENU BAR
+  ========================= */
+  .home-new-menu {
+    overflow-x: auto;
+    justify-content: flex-start;
+    white-space: nowrap;
+  }
+
+  .home-new-menu a {
+    font-size: 12px;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+
+  /* =========================
+     HERO SECTION
+  ========================= */
+  .homepassport-hero {
+    min-height: auto;
+    padding: 20px 12px;
+  }
+
+  .homepassport-leaders {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+  }
+
+  .ap-home-cm-card,
+  .ap-home-side-leader {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .ap-home-cm-card img {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .ap-home-side-leader img {
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  /* =========================
+     ABOUT SECTION
+  ========================= */
+  .home-new-philosophy-box {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .home-new-philo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* =========================
+     QUICK LINKS
+  ========================= */
+  .homequick-links-overlap {
+    margin-top: 0;
+    padding: 10px;
+  }
+
+  .homequick-services-card {
+    padding: 20px 14px;
+    border-radius: 12px;
+  }
+
+  .homequick-registration-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .homequick-registration-card {
+    padding: 16px 10px;
+  }
+
+  .homequick-registration-text {
+    font-size: 12px;
+  }
+
+  /* =========================
+     SERVICES SECTION
+  ========================= */
+  .homeservices-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .homeservices-service-card {
+    padding: 16px 10px;
+  }
+
+  .homeservices-service-card p {
+    font-size: 12px;
+  }
+
+  /* =========================
+     PHILOSOPHY CARDS
+  ========================= */
+  .homepublic-notice-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .homepublic-notice-card {
+    padding: 20px 16px;
+  }
+
+  /* =========================
+     MAGNIFYING LIST
+  ========================= */
+  .homepublic-arrow-list li {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* =========================
+     DASHBOARD
+  ========================= */
+  .home-new-dashboard-wrapper {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .home-new-dash-row {
+    flex-direction: column;
+  }
+
+  .home-new-dash-icon {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .home-new-complaints-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* =========================
+     EXPERTISE SECTION
+  ========================= */
+  .home-new-expertise {
+    padding: 35px 15px;
+  }
+
+  .home-new-expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-new-expertise-card {
+    padding: 25px 20px;
+  }
+
+  /* =========================
+     LEARNING SECTION
+  ========================= */
+  .home-new-learning {
+    padding: 35px 15px;
+  }
+
+  .home-new-learning-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .home-new-learning-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* =========================
+     FEEDBACK + REACH US
+  ========================= */
+  .home-new-contact-row {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .home-new-contact-col {
+    width: 100%;
+  }
+
+  .home-new-form-card {
+    max-width: 100%;
+  }
+
+  .home-new-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
+  .home-new-footer-policy {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .home-new-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .home-new-social-icons {
+    margin-left: 0;
+  }
+
+  /* =========================
+     TEXT FIX
+  ========================= */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    word-wrap: break-word;
+  }
+
+}

@@ -479,3 +479,156 @@ body {
     box-shadow: 0 0 10px yellow;
   }
 }
+/* =========================================
+   MOBILE NAVBAR RESPONSIVE CSS
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* =========================
+     TOP HEADER
+  ========================= */
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  /* logo + title */
+  .header-title {
+    font-size: 13px;
+    gap: 8px;
+    line-height: 1.4;
+    flex-wrap: wrap;
+  }
+
+  .header-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* =========================
+     RIGHT SIDE
+  ========================= */
+  .top-header-right {
+    position: static;
+    transform: none;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  /* translate dropdown */
+  #google_translate_element {
+    flex: 1;
+  }
+
+  .goog-te-combo {
+    width: 100%;
+    font-size: 12px !important;
+  }
+
+  /* search button */
+  .search-btn {
+    font-size: 12px;
+    padding: 0 10px;
+    height: 34px;
+    white-space: nowrap;
+  }
+
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  .main-navbar {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+  }
+
+  /* horizontal scrolling */
+  .nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    min-width: max-content;
+
+    padding: 0 10px;
+    gap: 2px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* hide scrollbar in chrome */
+  .nav-list::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .nav-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* navbar items */
+  .nav-list > li {
+
+    flex-shrink: 0;
+
+    padding: 12px 10px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+  }
+
+  /* dropdown arrow */
+  .arrow {
+    margin-left: 4px;
+  }
+
+  /* =========================
+     DROPDOWN MENU
+  ========================= */
+
+  .dropdown-menu {
+    position: absolute;
+    min-width: 220px;
+    z-index: 99999;
+  }
+
+  /* =========================
+     NOTICE DROPDOWN
+  ========================= */
+
+  .notice-dropdown {
+
+    width: 90vw;
+
+    right: 10px;
+
+    max-height: 300px;
+
+    overflow-y: auto;
+  }
+
+}
