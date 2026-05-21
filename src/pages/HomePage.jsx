@@ -77,7 +77,7 @@ function Navbar() {
 
   return (
     <header className="homenavbar-new-navbar">
-      <div className="homenavbar-new-notice-wrapper">
+      {/* <div className="homenavbar-new-notice-wrapper"> */}
         <div className="homenavbar-new-notice-board">
 
           <div className="homenavbar-new-icon-box">🔔</div>
@@ -121,7 +121,7 @@ function Navbar() {
           <button className="ticker-btn">▶</button>
 
         </div>
-      </div>
+      {/* </div> */}
     </header>
   );
 }
