@@ -491,21 +491,17 @@ body {
   }
 }
 /* =========================================
-   MOBILE NAVBAR PERFECT FIX
+   MOBILE NAVBAR + DROPDOWN FIX
 ========================================= */
 
 @media screen and (max-width: 768px) {
 
   .main-navbar {
-
     width: 100%;
-
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
 
     position: relative;
-
-    z-index: 99999;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -516,7 +512,6 @@ body {
   }
 
   .nav-list {
-
     display: flex;
     flex-wrap: nowrap;
 
@@ -531,6 +526,7 @@ body {
 
     white-space: nowrap;
 
+    overflow: visible;
     position: relative;
 
     scrollbar-width: none;
@@ -541,64 +537,67 @@ body {
   }
 
   .nav-list > li {
-
     flex: 0 0 auto;
-
     position: relative;
 
     padding: 12px 10px;
-
     font-size: 12px;
   }
 
-  /* =================================
-     DROPDOWN FLOAT ABOVE PAGE
-  ================================= */
-
+  /* DROPDOWN */
   .dropdown-menu {
-
     display: none;
 
-    position: fixed;   /* IMPORTANT */
+    position: absolute;
+    top: 100%;
+    left: 0;
 
-    top: 135px;        /* adjust if needed */
+    min-width: 220px;
 
-    left: 10px;
-
-    width: 240px;
-
-    background: #ffffff;
+    background: #fff;
 
     z-index: 999999;
 
-    border-radius: 8px;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
-  /* OPEN ON TOUCH */
-
+  /* CLICK / TOUCH SUPPORT */
   .dropdown:focus-within .dropdown-menu {
     display: block;
   }
 
-  /* DROPDOWN ITEMS */
+  /* SUB MENU */
+  .sub-dropdown-menu {
+    display: none;
 
-  .dropdown-menu li {
-
-    padding: 12px 15px;
-
-    color: #000;
-
-    border-bottom: 1px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 100%;
 
     background: #fff;
+
+    z-index: 999999;
   }
 
-  .dropdown-menu li:hover {
-    background: #f2f2f2;
+  .sub-dropdown:focus-within .sub-dropdown-menu {
+    display: block;
   }
 
+}
+.dropdown-menu {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 220px;
+
+  background: #fff;
+
+  z-index: 999999;
+
+  overflow: visible;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
