@@ -114,8 +114,19 @@
 }
 
 /* SHOW dropdown ONLY when hovering ABOUT US */
-.dropdown:hover .dropdown-menu {
-  display: block;
+/* MOBILE DROPDOWN FIX */
+
+@media screen and (max-width: 768px) {
+
+  .dropdown:active .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
 }
 .contact-submenu {
   position: relative;
@@ -480,83 +491,26 @@ body {
   }
 }
 /* =========================================
-   MOBILE NAVBAR RESPONSIVE CSS
+   MOBILE NAVBAR + DROPDOWN FIX
 ========================================= */
 
 @media screen and (max-width: 768px) {
 
-  /* =========================
-     TOP HEADER
-  ========================= */
-  .top-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  /* logo + title */
-  .header-title {
-    font-size: 13px;
-    gap: 8px;
-    line-height: 1.4;
-    flex-wrap: wrap;
-  }
-
-  .header-logo {
-    width: 42px;
-    height: 42px;
-  }
-
-  /* =========================
-     RIGHT SIDE
-  ========================= */
-  .top-header-right {
-    position: static;
-    transform: none;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 10px;
-    margin-top: 8px;
-  }
-
-  /* translate dropdown */
-  #google_translate_element {
-    flex: 1;
-  }
-
-  .goog-te-combo {
-    width: 100%;
-    font-size: 12px !important;
-  }
-
-  /* search button */
-  .search-btn {
-    font-size: 12px;
-    padding: 0 10px;
-    height: 34px;
-    white-space: nowrap;
-  }
-
-  /* =========================
-     NAVBAR
-  ========================= */
-
   .main-navbar {
     width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
 
-    -webkit-overflow-scrolling: touch;
+    position: relative;
 
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  /* horizontal scrolling */
+  .main-navbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .nav-list {
     display: flex;
     flex-wrap: nowrap;
@@ -564,71 +518,69 @@ body {
     justify-content: flex-start;
     align-items: center;
 
-    min-width: max-content;
+    width: max-content;
+    min-width: 100%;
 
     padding: 0 10px;
-    gap: 2px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
+    margin: 0;
 
     white-space: nowrap;
 
-    scroll-behavior: smooth;
+    overflow: visible;
+    position: relative;
 
-    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  /* hide scrollbar in chrome */
   .nav-list::-webkit-scrollbar {
-    height: 4px;
+    display: none;
   }
 
-  .nav-list::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  /* navbar items */
   .nav-list > li {
-
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    position: relative;
 
     padding: 12px 10px;
-
     font-size: 12px;
-
-    white-space: nowrap;
   }
 
-  /* dropdown arrow */
-  .arrow {
-    margin-left: 4px;
-  }
-
-  /* =========================
-     DROPDOWN MENU
-  ========================= */
-
+  /* DROPDOWN */
   .dropdown-menu {
+    display: none;
+
     position: absolute;
+    top: 100%;
+    left: 0;
+
     min-width: 220px;
-    z-index: 99999;
+
+    background: #fff;
+
+    z-index: 999999;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
-  /* =========================
-     NOTICE DROPDOWN
-  ========================= */
+  /* CLICK / TOUCH SUPPORT */
+  .dropdown:focus-within .dropdown-menu {
+    display: block;
+  }
 
-  .notice-dropdown {
+  /* SUB MENU */
+  .sub-dropdown-menu {
+    display: none;
 
-    width: 90vw;
+    position: absolute;
+    top: 0;
+    left: 100%;
 
-    right: 10px;
+    background: #fff;
 
-    max-height: 300px;
+    z-index: 999999;
+  }
 
-    overflow-y: auto;
+  .sub-dropdown:focus-within .sub-dropdown-menu {
+    display: block;
   }
 
 }
