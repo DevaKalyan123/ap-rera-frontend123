@@ -74,7 +74,7 @@ import Promoter_Profile from "./pages/Promoter_Profile";
 import ProjectDetails from "./pages/projectDetails.jsx";
 import DevelopmentDetails from "./pages/DevelopmentDetails.jsx";
 import AssociateDetails from "./pages/AssociateDetails.jsx";
-// import HomePage from "./pages/HomePage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 import BuildingInformationModelling from "./pages/BuildingInformationModelling.jsx";
 import VRInnovation from "./pages/VRInnovation.jsx";
 import RealTimeContextCapture from "./pages/RealTimeContextCapture.jsx";
@@ -358,7 +358,7 @@ function App() {
             <Route path="/agent-upload-documents" element={<AgentUploadDocuments />} />
             <Route path="/agent-preview" element={<Preview />} />
             <Route path="/agent-payment" element={<Payment />} />
-            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/bim" element={<BuildingInformationModelling />} />
             <Route path="/vr" element={<VRInnovation />} />
             <Route path="/rtc" element={<RealTimeContextCapture />} />
@@ -399,7 +399,7 @@ function App() {
             <Route path="/promoterData" element={<PromoterData />} />
             <Route path="/closure" element={<ClosureTable />} />
 
-            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/agent-renewal" element={<AgentRenewal />} />
 
             <Route path="/renewal/upload/:renewalId" element={<RenewalUploadDocuments />} />
