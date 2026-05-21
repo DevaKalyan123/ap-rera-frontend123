@@ -584,3 +584,20 @@ body {
   }
 
 }
+.dropdown-menu {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 220px;
+
+  background: #fff;
+
+  z-index: 999999;
+
+  overflow: visible;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
