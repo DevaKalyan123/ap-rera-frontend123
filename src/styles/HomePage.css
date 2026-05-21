@@ -2637,3 +2637,53 @@ background: linear-gradient(
   }
 
 }
+/* =================================
+   MOBILE SCROLLBAR REMOVE FIX
+================================= */
+
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+/* all sections safe */
+* {
+  box-sizing: border-box;
+}
+
+/* remove extra horizontal width */
+.homepassport-hero,
+.home-new-dashboard-wrapper,
+.home-new-contact-row,
+.home-new-philosophy-box,
+.homequick-services-card,
+.home-new-footer,
+.home-new-learning,
+.home-new-expertise {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* MOBILE FIX */
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .home-new-contact-row,
+  .home-new-dashboard-wrapper,
+  .home-new-philosophy-box,
+  .homequick-services-card {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* prevent any element crossing screen */
+  img,
+  div,
+  section {
+    max-width: 100% !important;
+  }
+}
