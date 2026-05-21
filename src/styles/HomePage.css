@@ -2415,11 +2415,33 @@ background: linear-gradient(
   /* =========================
      MENU BAR
   ========================= */
+  /* =========================
+   MOBILE MENU FIX
+========================= */
+
+@media screen and (max-width: 768px) {
+
   .home-new-menu {
-    overflow-x: auto;
-    justify-content: flex-start;
-    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE */
   }
+
+  /* Chrome */
+  .home-new-menu::-webkit-scrollbar {
+    display: none;
+    height: 0;
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+}
 
   .home-new-menu a {
     font-size: 12px;
@@ -2686,4 +2708,10 @@ body {
   section {
     max-width: 100% !important;
   }
+}
+html,
+body,
+#root {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
 }
