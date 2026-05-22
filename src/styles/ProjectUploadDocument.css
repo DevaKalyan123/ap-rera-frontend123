@@ -96,7 +96,8 @@ body {
 .uploaddoc-doc-note {
   color: red;
 }
-/* ================= Submitted By ================= */
+
+/* Submitted By */
 .uploaddoc-submitted-by {
   display: flex;
   align-items: center;
@@ -115,7 +116,7 @@ body {
   gap: 6px;
 }
 
-/* ================= Section Title ================= */
+/* Section Title */
 .uploaddoc-section-title {
   color: #4d96a3;
   font-size: 20px;
@@ -129,7 +130,7 @@ body {
   margin: 0 15px 15px;
 }
 
-/* ================= Form Grid ================= */
+/* Form Grid */
 .uploaddoc-form-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -170,7 +171,7 @@ body {
   box-shadow: 0 0 6px rgba(102, 175, 233, 0.6);
 }
 
-/* ================= Helpers ================= */
+/* Helpers */
 .uploaddoc-full-width {
   grid-column: span 2;
 }
@@ -180,9 +181,6 @@ body {
   margin-left: 2px;
   width: 200px;
 }
-/* .uploaddoc-required span{
-    width: 1500px;
-} */
 
 .uploaddoc-note {
   color: red;
@@ -190,13 +188,11 @@ body {
   font-weight: bold;
   margin: 15px;
 }
-/* ================= Declaration Section ================= */
 
-/* ================= Declaration (FIRST IMAGE STYLE) ================= */
-
+/* Declaration */
 .uploaddoc-declaration {
   display: flex;
-  align-items: center;          /* ✅ vertical alignment */
+  align-items: center;
   gap: 6px;
   font-size: 15px;
   margin: 20px 15px 30px;
@@ -204,45 +200,37 @@ body {
 }
 
 .uploaddoc-declaration input[type="checkbox"] {
-  margin-top: 0;                /* ✅ keep checkbox centered */
+  margin-top: 0;
 }
 
-/* Inline text + input container */
 .uploaddoc-declaration span {
   display: inline-flex;
-  align-items: center;          /* ✅ aligns I/We, input, text */
-  flex-wrap: wrap;              /* ✅ wraps nicely on small screens */
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* I/We input box */
 .uploaddoc-inline-input {
-  width: 140px;                 /* ✅ same as screenshot */
-  height: 28px;                 /* ✅ matches text height */
+  width: 140px;
+  height: 28px;
   margin: 0 6px;
   padding: 3px 6px;
-
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
-
   background-color: #ffffff;
   color: #333;
-
   border: 1px solid #cfcfcf;
   border-radius: 4px;
-
-  vertical-align: middle;       /* ✅ key fix */
+  vertical-align: middle;
   box-sizing: border-box;
 }
 
-/* Focus effect (govt style) */
 .uploaddoc-inline-input:focus {
   outline: none;
   border-color: #4d96a3;
   box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
 }
 
-/* ================= Note List (Proper spacing) ================= */
-
+/* Notes */
 .uploaddoc-note-list {
   margin: 20px 15px 10px;
 }
@@ -251,32 +239,28 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-
-  margin-bottom: 18px;   /* ✅ SPACE BETWEEN TWO LINES */
+  margin-bottom: 18px;
   font-size: 15px;
-  line-height: 1.6;      /* ✅ MULTI-LINE READABILITY */
+  line-height: 1.6;
 }
 
 .uploaddoc-note-list input[type="checkbox"] {
-  margin-top: 4px;       /* aligns checkbox with text */
+  margin-top: 4px;
 }
 
-/* ================= Save Button (Right aligned) ================= */
-
+/* Save Button */
 .uploaddoc-save-wrapper {
   display: flex;
-  justify-content: flex-end;   /* ✅ RIGHT SIDE */
-  margin: 25px 20px 20px;      /* ✅ SPACE ABOVE BUTTON */
+  justify-content: flex-end;
+  margin: 25px 20px 20px;
 }
 
 .uploaddoc-save-btn {
   padding: 6px 18px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-
   background-color: #4d96a3;
   color: #ffffff;
-
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -285,7 +269,8 @@ body {
 .uploaddoc-save-btn:hover {
   background-color: #4d96a3;
 }
-/* Popup box */
+
+/* Popup */
 .uploaddoc-popup {
   position: fixed;
   top: 40%;
@@ -298,19 +283,16 @@ body {
   max-width: 90%;
   z-index: 1000;
   border-radius: 4px;
-  box-shadow: none; /* match screenshot */
 }
 
-/* Popup text */
 .uploaddoc-popup p {
   margin: 0;
-  font-size: 13px;        /* EXACT size like screenshot */
-  font-weight: 600;       /* slightly bold */
-  color: #000000;         /* black text */
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
   line-height: 1.4;
 }
 
-/* Close button */
 .uploaddoc-popup-close {
   position: absolute;
   top: 6px;
@@ -327,13 +309,183 @@ body {
   line-height: 18px;
   text-align: center;
 }
-/* Background dim overlay */
+
 .uploaddoc-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4); /* grey background */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 999;
+}
+
+/* =========================================
+   MOBILE VIEW FIX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  .uploaddoc-container {
+    width: 100%;
+    margin: 0;
+    border: none;
+  }
+
+  .uploaddoc-title {
+    font-size: 20px;
+    padding: 12px;
+  }
+
+  .uploaddoc-breadcrumb {
+    font-size: 11px;
+    padding: 8px 10px;
+    line-height: 1.4;
+  }
+
+  /* ================= TABLE ================= */
+
+  .uploaddoc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .uploaddoc-th {
+    font-size: 10px;
+    padding: 5px;
+    border: 2px solid #d38b2c;
+  }
+
+  .uploaddoc-td {
+    font-size: 10px;
+    padding: 4px;
+    border: 2px solid #d38b2c;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .uploaddoc-table input[type="file"] {
+    width: 100%;
+    font-size: 9px;
+  }
+
+  .uploaddoc-download-link {
+    font-size: 9px;
+    word-break: break-word;
+  }
+
+  /* MOBILE FILE INPUT FIX */
+
+.uploaddoc-table input[type="file"] {
+  width: 140px;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.uploaddoc-table input[type="file"]::file-selector-button {
+  width: 110px;
+  height: 34px;
+
+  border: none;
+  border-radius: 4px;
+
+  background: #243b8f;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+  /* ================= FORM ================= */
+
+  .uploaddoc-form-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 10px;
+    gap: 14px;
+  }
+
+  .uploaddoc-form-grid input,
+  .uploaddoc-form-grid textarea,
+  .uploaddoc-form-grid select {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 42px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+  .uploaddoc-form-grid textarea {
+    min-height: 90px;
+  }
+
+  .uploaddoc-full-width {
+    grid-column: span 1;
+  }
+
+  /* ================= SUBMITTED BY ================= */
+
+  .uploaddoc-submitted-by {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 18px 10px;
+  }
+
+  /* ================= DECLARATION ================= */
+
+  .uploaddoc-declaration {
+    align-items: flex-start;
+    font-size: 13px;
+    margin: 15px 10px;
+  }
+
+  .uploaddoc-declaration span {
+    display: block;
+    line-height: 1.6;
+  }
+
+  .uploaddoc-inline-input {
+    width: 100%;
+    margin: 6px 0;
+  }
+
+  /* ================= NOTES ================= */
+
+  .uploaddoc-note-list {
+    margin: 15px 10px;
+  }
+
+  .uploaddoc-note-list div {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ================= SAVE BUTTON ================= */
+
+  .uploaddoc-save-wrapper {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .uploaddoc-save-btn {
+    width: 100%;
+    max-width: 220px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  /* ================= POPUP ================= */
+
+  .uploaddoc-popup {
+    width: 92%;
+    padding: 16px;
+  }
+
+  .uploaddoc-popup p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
 }
