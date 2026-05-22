@@ -1455,6 +1455,8 @@ background: linear-gradient(
     opacity: 0;
   }
 }
+
+
 /* ===========================
    LEADERS STYLE (APRERA TYPE)
 =========================== */
@@ -1599,7 +1601,6 @@ background: linear-gradient(
   height: 42px;
   object-fit: contain;
 }
-
 /* ======================================
    QUICK LINKS / REGISTRATION OVER HERO
    (Passport Seva Style Overlap)
