@@ -582,7 +582,6 @@ body {
   .sub-dropdown:focus-within .sub-dropdown-menu {
     display: block;
   }
-
 }
 .dropdown-menu {
   display: none;
