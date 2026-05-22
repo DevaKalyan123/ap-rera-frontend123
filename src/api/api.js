@@ -1,27 +1,34 @@
 // src/api/api.js
 
 
+// src/api/api.js
+
 const isProduction = import.meta.env.MODE === "production";
 
 /**
  * Backend Base URL
- * - Dev: DevTunnel backend (8080)
- * - Prod: real domain
  */
-export const DEV_BACKEND_URL = "https://zrnwpbn5-5000.inc1.devtunnels.ms/";
 
- //const DEV_BACKEND_URL = "http://localhost:8080";
+export const DEV_BACKEND_URL =
+  "https://zrnwpbn5-5000.inc1.devtunnels.ms";
 
-const PROD_BACKEND_URL = "https://your-production-domain.com";``
+// LOCAL
+// const DEV_BACKEND_URL = "http://localhost:8080";
+
+// ✅ USE SAME URL FOR PROD ALSO
+const PROD_BACKEND_URL =
+  "https://zrnwpbn5-5000.inc1.devtunnels.ms";
 
 export const BASE_URL = isProduction
   ? PROD_BACKEND_URL
   : DEV_BACKEND_URL;
 
 // ================================
-// 🔁 API FETCH WRAPPER
+// API FETCH WRAPPER
 // ================================
+
 export async function apiFetch(path, options = {}) {
+
   const url = path.startsWith("http")
     ? path
     : `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
@@ -30,21 +37,31 @@ export async function apiFetch(path, options = {}) {
 
   const res = await fetch(url, {
     mode: "cors",
+
     headers: {
-      ...(isFormData ? {} : { "Content-Type": "application/json" }),
+      ...(isFormData
+        ? {}
+        : {
+            "Content-Type": "application/json",
+          }),
+
       ...(options.headers || {}),
     },
+
     ...options,
   });
 
   const raw = await res.text();
 
-  // Detect tunnel HTML error
+  // Tunnel expired check
   if (raw.startsWith("<!DOCTYPE html>")) {
-    throw new Error("Backend not reachable or DevTunnel expired");
+    throw new Error(
+      "Backend not reachable or DevTunnel expired"
+    );
   }
 
   let data;
+
   try {
     data = raw ? JSON.parse(raw) : null;
   } catch {
@@ -52,9 +69,11 @@ export async function apiFetch(path, options = {}) {
   }
 
   if (!res.ok) {
+
     throw new Error(
-      (data && (data.error || data.message)) ||
-      `HTTP ${res.status}`
+      (data &&
+        (data.error || data.message)) ||
+        `HTTP ${res.status}`
     );
   }
 
@@ -64,23 +83,36 @@ export async function apiFetch(path, options = {}) {
 // ================================
 // API HELPERS
 // ================================
+
 export const apiGet = (url) =>
-  apiFetch(url, { method: "GET" });
+  apiFetch(url, {
+    method: "GET",
+  });
 
 export const apiPost = (url, body) =>
   apiFetch(url, {
     method: "POST",
-    body: body instanceof FormData ? body : JSON.stringify(body),
+
+    body:
+      body instanceof FormData
+        ? body
+        : JSON.stringify(body),
   });
 
 export const apiPut = (url, body) =>
   apiFetch(url, {
     method: "PUT",
-    body: body instanceof FormData ? body : JSON.stringify(body),
+
+    body:
+      body instanceof FormData
+        ? body
+        : JSON.stringify(body),
   });
 
 export const apiDelete = (url) =>
-  apiFetch(url, { method: "DELETE" });
+  apiFetch(url, {
+    method: "DELETE",
+  });
 
 // ================================
 // SPECIFIC API ENDPOINTS FOR NEW USER REGISTRATION
