@@ -1,9 +1,18 @@
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
 .associate-details-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
+  overflow-x: hidden;
 }
+
+/* =========================================
+   PROGRESS STEPS
+========================================= */
 
 .progress-steps {
   display: flex;
@@ -54,13 +63,10 @@
   font-weight: bold;
   margin-bottom: 8px;
   z-index: 1;
+  font-size: 14px;
 }
 
-.step.completed .step-number {
-  background-color: #4caf50;
-  color: white;
-}
-
+.step.completed .step-number,
 .step.active .step-number {
   background-color: #4caf50;
   color: white;
@@ -77,11 +83,16 @@
   font-weight: 600;
 }
 
+/* =========================================
+   CONTENT BOX
+========================================= */
+
 .associate-details-content {
   background: white;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }
 
 .form-section {
@@ -94,6 +105,10 @@
   border-bottom: none;
 }
 
+/* =========================================
+   SECTION TITLE
+========================================= */
+
 .section-title-ac {
   color: rgb(75, 143, 203);
   font-size: 20px;
@@ -103,6 +118,10 @@
   border-bottom: 3px solid #4d96a3;
   display: inline-block;
 }
+
+/* =========================================
+   FORM GRID
+========================================= */
 
 .form-grid {
   display: grid;
@@ -114,6 +133,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-group label {
@@ -128,12 +148,19 @@
   margin-left: 2px;
 }
 
+/* =========================================
+   FORM CONTROLS
+========================================= */
+
 .form-control {
+  width: 100%;
   padding: 10px 12px;
   border: 1px solid #d0d0d0;
   border-radius: 4px;
   font-size: 14px;
   transition: border-color 0.3s;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .form-control:focus {
@@ -151,10 +178,42 @@
   cursor: not-allowed;
 }
 
+/* =========================================
+   SELECT FIX
+========================================= */
+
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='gray' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5l6 6 6-6'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+
+  padding-right: 35px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+select.form-control option {
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
 .add-button-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-bottom: 35px;
 }
 
 .btn-add {
@@ -173,9 +232,28 @@
   background-color: #0e7490;
 }
 
-.added-items-list {
-  margin-top: 30px;
+/* =========================================
+   TABLE HEADING
+========================================= */
+
+.table-heading,
+.added-items-list h2,
+.added-items-list h3 {
+  font-size: 20px !important;
+  font-weight: 600;
+  margin-top: 20px !important;
+  margin-bottom: 16px !important;
+  color: #222;
+  line-height: 1.4;
 }
+
+.added-items-list {
+  margin-top: 10px;
+}
+
+/* =========================================
+   TABLE
+========================================= */
 
 .data-table {
   width: 100%;
@@ -204,6 +282,10 @@
   background-color: #f9f9f9;
 }
 
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
 .btn-delete {
   background-color: #f44336;
   color: white;
@@ -218,6 +300,10 @@
 .btn-delete:hover {
   background-color: #d32f2f;
 }
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
 
 .form-actions {
   display: flex;
@@ -248,7 +334,10 @@
   cursor: not-allowed;
 }
 
-/* Responsive Design */
+/* =========================================
+   TABLET VIEW
+========================================= */
+
 @media (max-width: 1200px) {
   .form-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -269,61 +358,50 @@
   }
 }
 
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .associate-details-container {
-    padding: 10px;
-  }
-
-  .associate-details-content {
-    padding: 20px;
-  }
-
-  .data-table {
-    font-size: 12px;
-  }
-
-  .data-table th,
-  .data-table td {
-    padding: 8px;
-  }
-}
-
 /* =========================================
-   MOBILE VIEW FINAL FIX
+   MOBILE VIEW
 ========================================= */
 
 @media screen and (max-width: 768px) {
 
+  body {
+    overflow-x: hidden;
+  }
+
   .associate-details-container {
-    padding: 10px;
+    padding: 8px;
   }
 
   .associate-details-content {
-    padding: 16px;
+    padding: 14px;
     border-radius: 8px;
   }
 
   /* STEP BAR */
+
   .progress-steps {
     overflow-x: auto;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    gap: 18px;
-    padding: 15px;
+    gap: 14px;
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .step {
-    min-width: 90px;
+    min-width: 80px;
     flex-shrink: 0;
   }
 
   .step-label {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .step-number {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
   }
 
   .step:not(:last-child)::after {
@@ -331,62 +409,123 @@
   }
 
   /* SECTION TITLE */
+
   .section-title-ac {
-    font-size: 18px;
+    font-size: 15px;
   }
 
-  /* IMPORTANT FIX */
+  /* GRID */
+
   .form-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px;
+    gap: 14px;
   }
 
   .form-group {
     width: 100%;
+    overflow: hidden;
   }
 
   .form-group label {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.4;
   }
+
+  /* INPUTS */
 
   .form-control {
     width: 100%;
-    height: 44px;
-    font-size: 14px;
-    box-sizing: border-box;
+    height: 40px;
+    font-size: 13px !important;
+    padding: 8px 10px;
   }
 
   textarea.form-control {
-    min-height: 100px;
+    min-height: 90px;
+    font-size: 13px;
   }
 
-  /* BUTTONS */
-  .add-button-container,
-  .form-actions {
-    justify-content: center;
-  }
+  /* SELECT */
 
-  .btn-add,
-  .btn-save-continue {
+  select.form-control {
     width: 100%;
-    max-width: 250px;
-    height: 44px;
-    font-size: 15px;
+    max-width: 100%;
+    min-width: 100%;
+    font-size: 13px !important;
+  }
+
+  select.form-control option {
+    font-size: 13px;
+  }
+
+  /* BUTTON SPACE FIX */
+
+  .add-button-container {
+    justify-content: center;
+    margin-top: 25px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .btn-add {
+    width: 100%;
+    max-width: 220px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  /* HEADING SIZE FIX */
+
+  .table-heading,
+  .added-items-list h2,
+  .added-items-list h3 {
+    font-size: 13px !important;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 25px !important;
+    margin-bottom: 14px !important;
   }
 
   /* TABLE */
+
   .data-table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+    border-radius: 6px;
+    font-size: 11px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 6px 8px;
+    font-size: 10px !important;
+  }
+
+  /* DELETE BUTTON */
+
+  .btn-delete {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  /* SAVE BUTTON */
+
+  .form-actions {
+    justify-content: center;
+  }
+
+  .btn-save-continue {
+    width: 100%;
+    max-width: 220px;
+    height: 40px;
+    font-size: 13px;
   }
 
   /* SUPPORT BUTTON */
+
   iframe,
   .support-widget {
-    transform: scale(0.72);
+    transform: scale(0.70);
     transform-origin: bottom right;
   }
-
 }

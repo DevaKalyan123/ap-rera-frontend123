@@ -918,3 +918,141 @@
     content: none !important;
   }
 }
+
+
+/* =========================================
+   MOBILE VIEW - SAME AS DESKTOP
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* MAIN CONTAINER */
+  .agentpreview-main-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    box-sizing: border-box;
+  }
+
+  .agentpreview-page-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  .agentpreview-content-padding {
+    padding: 10px !important;
+  }
+
+  /* TITLE */
+  .agentpreview-page-title {
+    font-size: 18px !important;
+  }
+
+  /* BREADCRUMB */
+  .agentpreview-breadcrumb-bar {
+    font-size: 12px !important;
+    padding: 10px !important;
+    line-height: 1.5;
+  }
+
+  /* ===== STEPPER ===== */
+
+  .applicantdetails-stepper {
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+
+  .applicantdetails-step {
+    min-width: 80px;
+  }
+
+  .applicantdetails-step span {
+    font-size: 11px;
+  }
+
+  .applicantdetails-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  /* ===== PREVIEW GRID ===== */
+
+  .agentpreview-preview-grid {
+    display: grid !important;
+    grid-template-columns: 110px 1fr !important;
+    row-gap: 8px !important;
+    column-gap: 8px !important;
+    font-size: 12px !important;
+  }
+
+  .agentpreview-preview-label {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  .agentpreview-preview-value {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  /* ===== TABLE ===== */
+
+  .agentpreview-doc-table {
+    width: 100% !important;
+    border-collapse: collapse;
+    font-size: 11px !important;
+  }
+
+  .agentpreview-doc-table th {
+    padding: 6px !important;
+    font-size: 11px !important;
+  }
+
+  .agentpreview-doc-table td {
+    padding: 6px !important;
+    font-size: 11px !important;
+    word-break: break-word;
+  }
+
+  /* ===== BUTTONS ===== */
+
+  .agentpreview-doc-table button,
+  .agentpreview-submit-btn,
+  .applicant-back-btn {
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+  }
+
+  /* ===== OTP SECTION ===== */
+
+  .agentpreview-otp-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .agentpreview-otp-row input {
+    width: 100% !important;
+  }
+
+  /* ===== ACTION BUTTONS ===== */
+
+  .agentpreview-action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .agentpreview-submit-btn {
+    width: 100%;
+  }
+
+  /* ===== SECTION TITLES ===== */
+
+  .applicantdetails-section-title {
+    font-size: 15px;
+  }
+
+}
