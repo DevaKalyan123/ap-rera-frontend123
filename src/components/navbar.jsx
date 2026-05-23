@@ -4,19 +4,22 @@ import { useState } from "react";
 
 import OfficeorderPdf from "../../public/assets/pdfs/Officeorder.pdf";
 import CAUSELISTPdf from "../../public/assets/pdfs/CAuselist.pdf";
+import appealPdf from "../../public/assets/pdfs/AppealToBuyer.pdf";
 import legalpdf from "../../public/assets/pdfs/LEGAL_APRERA_CORPORATE_PRESENTATION.pdf";
 import Logo from "../../public/assets/images/logo.jpg";
 import GoogleTranslate from "./GoogleTranslate";
 
-const Navbar = () => {
+const Navbar = ({ setHideNotice }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [showNotice, setShowNotice] = useState(false);
+
   // MOBILE MENU
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // DROPDOWN
+  // MOBILE DROPDOWN
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const toggleDropdown = (menu) => {
@@ -36,6 +39,9 @@ const Navbar = () => {
   if (
     isScrutinyRoute ||
     location.pathname.startsWith("/admin") ||
+    location.pathname.startsWith("/legal") ||
+    location.pathname.startsWith("/hearings") ||
+    location.pathname === "/legalcomplaintlist" ||
     location.pathname === "/admin-login" ||
     location.pathname === "/apreatapplication"
   ) {
@@ -96,16 +102,16 @@ const Navbar = () => {
 
           <div className="mobile-menu-header">
 
-            <span className="mobile-menu-text">
+            <div className="mobile-menu-text">
               Menu
-            </span>
+            </div>
 
-            <span
+            <div
               className="mobile-close-btn"
               onClick={() => setMobileMenuOpen(false)}
             >
-              ✕
-            </span>
+              ×
+            </div>
 
           </div>
 
@@ -120,7 +126,7 @@ const Navbar = () => {
                 setMobileMenuOpen(false);
               }}
             >
-              Home
+              HOME
             </div>
 
           </li>
@@ -133,10 +139,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("registration")}
             >
-              Registration
+              REGISTRATION
+
               <span className="mobile-arrow">
                 {openDropdown === "registration" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "registration" && (
@@ -197,10 +205,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("reports")}
             >
-              Reports
+              REPORTS
+
               <span className="mobile-arrow">
                 {openDropdown === "reports" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "reports" && (
@@ -208,11 +218,11 @@ const Navbar = () => {
               <ul className="dropdown-menu mobile-dropdown-show">
 
                 <li onClick={() => navigate("/mis-reports")}>
-                  MIS Reports
+                  MIS reports
                 </li>
 
                 <li>
-                  GIS Reports
+                  GIS reports
                 </li>
 
               </ul>
@@ -229,10 +239,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("registered")}
             >
-              Registered
+              REGISTERED
+
               <span className="mobile-arrow">
                 {openDropdown === "registered" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "registered" && (
@@ -253,6 +265,43 @@ const Navbar = () => {
 
           </li>
 
+          {/* JUDGEMENTS */}
+
+          <li className="dropdown">
+
+            <div
+              className="mobile-dropdown-title"
+              onClick={() => toggleDropdown("judgements")}
+            >
+              JUDGEMENTS/ORDERS
+
+              <span className="mobile-arrow">
+                {openDropdown === "judgements" ? "⌃" : "⌄"}
+              </span>
+
+            </div>
+
+            {openDropdown === "judgements" && (
+
+              <ul className="dropdown-menu mobile-dropdown-show">
+
+                <li
+                  onClick={() =>
+                    window.open(
+                      window.location.origin + "/statistics",
+                      "_blank"
+                    )
+                  }
+                >
+                  Statistics
+                </li>
+
+              </ul>
+
+            )}
+
+          </li>
+
           {/* NOTIFICATIONS */}
 
           <li className="dropdown">
@@ -261,10 +310,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("notifications")}
             >
-              Notifications
+              NOTIFICATIONS
+
               <span className="mobile-arrow">
                 {openDropdown === "notifications" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "notifications" && (
@@ -293,7 +344,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Complaints Cause List Motion Hearing
+                    Complaints Cause List Motion Hearing Before Adjudicating Officer
                   </a>
                 </li>
 
@@ -313,6 +364,141 @@ const Navbar = () => {
 
           </li>
 
+          {/* KNOWLEDGE HUB */}
+
+          <li className="dropdown">
+
+            <div
+              className="mobile-dropdown-title"
+              onClick={() => toggleDropdown("knowledge")}
+            >
+              KNOWLEDGE HUB
+
+              <span className="mobile-arrow">
+                {openDropdown === "knowledge" ? "⌃" : "⌄"}
+              </span>
+
+            </div>
+
+            {openDropdown === "knowledge" && (
+
+              <ul className="dropdown-menu mobile-dropdown-show">
+
+                <li onClick={() => navigate("/evolutionofrera")}>
+                  Evolution of RERA
+                </li>
+
+                <li onClick={() => navigate("/race")}>
+                  RACE
+                </li>
+
+                <li onClick={() => navigate("/taskvstime")}>
+                  Task Vs Time
+                </li>
+
+                <li onClick={() => navigate("/ChronologyOfEvents")}>
+                  Chronology of Events
+                </li>
+
+                <li onClick={() => window.open(legalpdf, "_blank")}>
+                  APRERA Presentation
+                </li>
+
+                <li onClick={() => navigate("/JudgementHub")}>
+                  Judgement
+                </li>
+
+                <li onClick={() => navigate("/vendordatabase")}>
+                  VendorDatabase
+                </li>
+
+                <li onClick={() => navigate("/AdvertisementGuidelines")}>
+                  Advertisement Guidelines
+                </li>
+
+                <li onClick={() => navigate("/audiovisualgallery")}>
+                  AudioVisualGallery
+                </li>
+
+                <li onClick={() => navigate("/PressRelease")}>
+                  Press Releases
+                </li>
+
+                <li onClick={() => navigate("/gradingofpromotors")}>
+                  GradingOfPromotors
+                </li>
+
+                <li onClick={() => navigate("/GradingOfAgents")}>
+                  Grading of Agents
+                </li>
+
+                <li onClick={() => navigate("/acf")}>
+                  acf
+                </li>
+
+                <li onClick={() => navigate("/Testimonials")}>
+                  Testimonials
+                </li>
+
+                <li onClick={() => window.open(appealPdf, "_blank")}>
+                  Appeal to Buyer
+                </li>
+
+              </ul>
+
+            )}
+
+          </li>
+
+          {/* COMPLAINT ORDERS */}
+
+          <li className="dropdown">
+
+            <div
+              className="mobile-dropdown-title"
+              onClick={() => toggleDropdown("complaint")}
+            >
+              COMPLAINT ORDERS
+
+              <span className="mobile-arrow">
+                {openDropdown === "complaint" ? "⌃" : "⌄"}
+              </span>
+
+            </div>
+
+            {openDropdown === "complaint" && (
+
+              <ul className="dropdown-menu mobile-dropdown-show">
+
+                <li onClick={() => navigate("/complaintstatus")}>
+                  FORM M
+                </li>
+
+                <li onClick={() => navigate("/complaintstatus")}>
+                  FORM N
+                </li>
+
+              </ul>
+
+            )}
+
+          </li>
+
+          {/* APREAT */}
+
+          <li>
+
+            <div
+              className="mobile-single-menu"
+              onClick={() =>
+                window.open("/apreatapplication", "_blank")
+              }
+            >
+              APREAT
+            </div>
+
+          </li>
+
           {/* ABOUT US */}
 
           <li className="dropdown">
@@ -321,10 +507,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("about")}
             >
-              About Us
+              ABOUT US
+
               <span className="mobile-arrow">
                 {openDropdown === "about" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "about" && (
@@ -351,9 +539,26 @@ const Navbar = () => {
                   Our Leadership
                 </li>
 
+                <li onClick={() => navigate("/contact-us/aprera")}>
+                  Contact Us
+                </li>
+
               </ul>
 
             )}
+
+          </li>
+
+          {/* DPMS */}
+
+          <li>
+
+            <div
+              className="mobile-single-menu"
+              onClick={() => navigate("/dbbase")}
+            >
+              DPMS
+            </div>
 
           </li>
 
@@ -365,10 +570,12 @@ const Navbar = () => {
               className="mobile-dropdown-title"
               onClick={() => toggleDropdown("login")}
             >
-              Login
+              LOGIN
+
               <span className="mobile-arrow">
                 {openDropdown === "login" ? "⌃" : "⌄"}
               </span>
+
             </div>
 
             {openDropdown === "login" && (
@@ -376,18 +583,70 @@ const Navbar = () => {
               <ul className="dropdown-menu mobile-dropdown-show">
 
                 <li onClick={() => navigate("/admin-login")}>
-                  Admin Login
+                  ADMIN LOGIN
                 </li>
 
                 <li onClick={() => navigate("/department")}>
-                  Department Login
+                  DEPARTMENT LOGIN
                 </li>
 
                 <li onClick={() => navigate("/promoter")}>
-                  Promoter Login
+                  PROMOTOR LOGIN
                 </li>
 
               </ul>
+
+            )}
+
+          </li>
+
+          {/* NOTICE BELL */}
+
+          <li className="nav-bell">
+
+            <span
+              onClick={() => setShowNotice(!showNotice)}
+            >
+              🔔
+            </span>
+
+            {showNotice && (
+
+              <div className="notice-dropdown">
+
+                <div className="notice-scroll-box">
+
+                  <ul className="notice-scroll-list">
+
+                    <li>
+                      <span className="new-inline">NEW</span>
+
+                      <div className="notice-text">
+                        One Time Opportunity with 50% Concession on Late Fee for Un-registered Projects.
+                      </div>
+                    </li>
+
+                    <li>
+                      <span className="new-inline">NEW</span>
+
+                      <div className="notice-text">
+                        Quarterly Updates: All the Promoters have to submit the Quarterly Update of January 2026 - March 2026 on or before 21/04/2026 without fail.
+                      </div>
+                    </li>
+
+                    <li>
+                      <span className="new-inline">NEW</span>
+
+                      <div className="notice-text">
+                        Promoters intending to obtain a project extension are advised to appear before the Authority.
+                      </div>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
 
             )}
 
