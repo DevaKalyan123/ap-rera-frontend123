@@ -9,7 +9,7 @@ import legalpdf from "../../public/assets/pdfs/LEGAL_APRERA_CORPORATE_PRESENTATI
 import Logo from "../../public/assets/images/logo.jpg";
 import GoogleTranslate from "./GoogleTranslate";
 
-const Navbar = ({ setHideNotice }) => {
+const Navbar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,6 +22,13 @@ const Navbar = ({ setHideNotice }) => {
   // MOBILE DROPDOWN
   const [openDropdown, setOpenDropdown] = useState(null);
 
+  // CLOSE MENU
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
+  // TOGGLE DROPDOWN
   const toggleDropdown = (menu) => {
 
     if (openDropdown === menu) {
@@ -108,7 +115,7 @@ const Navbar = ({ setHideNotice }) => {
 
             <div
               className="mobile-close-btn"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMenu}
             >
               ×
             </div>
@@ -123,7 +130,7 @@ const Navbar = ({ setHideNotice }) => {
               className="mobile-single-menu"
               onClick={() => {
                 navigate("/");
-                setMobileMenuOpen(false);
+                closeMenu();
               }}
             >
               HOME
@@ -151,43 +158,73 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/promotregistration")}>
+                <li onClick={() => {
+                  navigate("/promotregistration");
+                  closeMenu();
+                }}>
                   Promoter Registration
                 </li>
 
-                <li onClick={() => navigate("/guidelinesRegistration")}>
+                <li onClick={() => {
+                  navigate("/guidelinesRegistration");
+                  closeMenu();
+                }}>
                   Guidelines for Registration
                 </li>
 
-                <li onClick={() => navigate("/project-registration")}>
+                <li onClick={() => {
+                  navigate("/project-registration");
+                  closeMenu();
+                }}>
                   Project Registration
                 </li>
 
-                <li onClick={() => navigate("/agent-registration")}>
+                <li onClick={() => {
+                  navigate("/agent-registration");
+                  closeMenu();
+                }}>
                   Agent Registration
                 </li>
 
-                <li onClick={() => navigate("/complaintRegistration")}>
+                <li onClick={() => {
+                  navigate("/complaintRegistration");
+                  closeMenu();
+                }}>
                   Complaint Registration
                 </li>
 
-                <li onClick={() => navigate("/feecalculater")}>
+                <li onClick={() => {
+                  navigate("/feecalculater");
+                  closeMenu();
+                }}>
                   Fee Calculator
                 </li>
 
-                <li onClick={() => navigate("/usermanual")}>
+                <li onClick={() => {
+                  navigate("/usermanual");
+                  closeMenu();
+                }}>
                   User Manuals
                 </li>
 
-                <li onClick={() => navigate("/formsdownload")}>
+                <li onClick={() => {
+                  navigate("/formsdownload");
+                  closeMenu();
+                }}>
                   Forms Download
                 </li>
 
-                <li onClick={() => navigate("/videoTutorial")}>
+                <li onClick={() => {
+                  navigate("/videoTutorial");
+                  closeMenu();
+                }}>
                   Video Tutorials
                 </li>
 
-                <li onClick={() => navigate("/mobileapp")}>
+                <li onClick={() => {
+                  navigate("/mobileapp");
+                  closeMenu();
+                }}>
                   Mobile App
                 </li>
 
@@ -217,11 +254,14 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/mis-reports")}>
+                <li onClick={() => {
+                  navigate("/mis-reports");
+                  closeMenu();
+                }}>
                   MIS reports
                 </li>
 
-                <li>
+                <li onClick={closeMenu}>
                   GIS reports
                 </li>
 
@@ -251,11 +291,17 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/registered/projects")}>
+                <li onClick={() => {
+                  navigate("/registered/projects");
+                  closeMenu();
+                }}>
                   Projects
                 </li>
 
-                <li onClick={() => navigate("/agents")}>
+                <li onClick={() => {
+                  navigate("/agents");
+                  closeMenu();
+                }}>
                   Agents
                 </li>
 
@@ -286,12 +332,13 @@ const Navbar = ({ setHideNotice }) => {
               <ul className="dropdown-menu mobile-dropdown-show">
 
                 <li
-                  onClick={() =>
+                  onClick={() => {
                     window.open(
                       window.location.origin + "/statistics",
                       "_blank"
-                    )
-                  }
+                    );
+                    closeMenu();
+                  }}
                 >
                   Statistics
                 </li>
@@ -322,19 +369,31 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/goinotifications")}>
+                <li onClick={() => {
+                  navigate("/goinotifications");
+                  closeMenu();
+                }}>
                   GOI Notifications
                 </li>
 
-                <li onClick={() => navigate("/goapnotifications")}>
+                <li onClick={() => {
+                  navigate("/goapnotifications");
+                  closeMenu();
+                }}>
                   GOAP Notifications
                 </li>
 
-                <li onClick={() => navigate("/authoritynotifications")}>
+                <li onClick={() => {
+                  navigate("/authoritynotifications");
+                  closeMenu();
+                }}>
                   Authority Notifications
                 </li>
 
-                <li onClick={() => navigate("/cidcandaprerajoint")}>
+                <li onClick={() => {
+                  navigate("/cidcandaprerajoint");
+                  closeMenu();
+                }}>
                   CIDC and APRERA Joint Notifications
                 </li>
 
@@ -343,8 +402,9 @@ const Navbar = ({ setHideNotice }) => {
                     href={CAUSELISTPdf}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={closeMenu}
                   >
-                    Complaints Cause List Motion Hearing Before Adjudicating Officer
+                    Complaints Cause List
                   </a>
                 </li>
 
@@ -353,6 +413,7 @@ const Navbar = ({ setHideNotice }) => {
                     href={OfficeorderPdf}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={closeMenu}
                   >
                     Office Order
                   </a>
@@ -384,64 +445,46 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/evolutionofrera")}>
+                <li onClick={() => {
+                  navigate("/evolutionofrera");
+                  closeMenu();
+                }}>
                   Evolution of RERA
                 </li>
 
-                <li onClick={() => navigate("/race")}>
+                <li onClick={() => {
+                  navigate("/race");
+                  closeMenu();
+                }}>
                   RACE
                 </li>
 
-                <li onClick={() => navigate("/taskvstime")}>
+                <li onClick={() => {
+                  navigate("/taskvstime");
+                  closeMenu();
+                }}>
                   Task Vs Time
                 </li>
 
-                <li onClick={() => navigate("/ChronologyOfEvents")}>
+                <li onClick={() => {
+                  navigate("/ChronologyOfEvents");
+                  closeMenu();
+                }}>
                   Chronology of Events
                 </li>
 
-                <li onClick={() => window.open(legalpdf, "_blank")}>
+                <li onClick={() => {
+                  window.open(legalpdf, "_blank");
+                  closeMenu();
+                }}>
                   APRERA Presentation
                 </li>
 
-                <li onClick={() => navigate("/JudgementHub")}>
+                <li onClick={() => {
+                  navigate("/JudgementHub");
+                  closeMenu();
+                }}>
                   Judgement
-                </li>
-
-                <li onClick={() => navigate("/vendordatabase")}>
-                  VendorDatabase
-                </li>
-
-                <li onClick={() => navigate("/AdvertisementGuidelines")}>
-                  Advertisement Guidelines
-                </li>
-
-                <li onClick={() => navigate("/audiovisualgallery")}>
-                  AudioVisualGallery
-                </li>
-
-                <li onClick={() => navigate("/PressRelease")}>
-                  Press Releases
-                </li>
-
-                <li onClick={() => navigate("/gradingofpromotors")}>
-                  GradingOfPromotors
-                </li>
-
-                <li onClick={() => navigate("/GradingOfAgents")}>
-                  Grading of Agents
-                </li>
-
-                <li onClick={() => navigate("/acf")}>
-                  acf
-                </li>
-
-                <li onClick={() => navigate("/Testimonials")}>
-                  Testimonials
-                </li>
-
-                <li onClick={() => window.open(appealPdf, "_blank")}>
-                  Appeal to Buyer
                 </li>
 
               </ul>
@@ -470,11 +513,17 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/complaintstatus")}>
+                <li onClick={() => {
+                  navigate("/complaintstatus");
+                  closeMenu();
+                }}>
                   FORM M
                 </li>
 
-                <li onClick={() => navigate("/complaintstatus")}>
+                <li onClick={() => {
+                  navigate("/complaintstatus");
+                  closeMenu();
+                }}>
                   FORM N
                 </li>
 
@@ -490,9 +539,10 @@ const Navbar = ({ setHideNotice }) => {
 
             <div
               className="mobile-single-menu"
-              onClick={() =>
-                window.open("/apreatapplication", "_blank")
-              }
+              onClick={() => {
+                window.open("/apreatapplication", "_blank");
+                closeMenu();
+              }}
             >
               APREAT
             </div>
@@ -519,28 +569,39 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/organogram")}>
+                <li onClick={() => {
+                  navigate("/organogram");
+                  closeMenu();
+                }}>
                   Organisation Structure
                 </li>
 
-                <li onClick={() => navigate("/ourservices")}>
+                <li onClick={() => {
+                  navigate("/ourservices");
+                  closeMenu();
+                }}>
                   Our Services
                 </li>
 
-                <li onClick={() => navigate("/recruitment")}>
+                <li onClick={() => {
+                  navigate("/recruitment");
+                  closeMenu();
+                }}>
                   Recruitment
                 </li>
 
-                <li onClick={() => navigate("/rti")}>
+                <li onClick={() => {
+                  navigate("/rti");
+                  closeMenu();
+                }}>
                   RTI
                 </li>
 
-                <li onClick={() => navigate("/our-leadership")}>
+                <li onClick={() => {
+                  navigate("/our-leadership");
+                  closeMenu();
+                }}>
                   Our Leadership
-                </li>
-
-                <li onClick={() => navigate("/contact-us/aprera")}>
-                  Contact Us
                 </li>
 
               </ul>
@@ -555,7 +616,10 @@ const Navbar = ({ setHideNotice }) => {
 
             <div
               className="mobile-single-menu"
-              onClick={() => navigate("/dbbase")}
+              onClick={() => {
+                navigate("/dbbase");
+                closeMenu();
+              }}
             >
               DPMS
             </div>
@@ -582,76 +646,84 @@ const Navbar = ({ setHideNotice }) => {
 
               <ul className="dropdown-menu mobile-dropdown-show">
 
-                <li onClick={() => navigate("/admin-login")}>
+                <li onClick={() => {
+                  navigate("/admin-login");
+                  closeMenu();
+                }}>
                   ADMIN LOGIN
                 </li>
 
-                <li onClick={() => navigate("/department")}>
+                <li onClick={() => {
+                  navigate("/department");
+                  closeMenu();
+                }}>
                   DEPARTMENT LOGIN
                 </li>
 
-                <li onClick={() => navigate("/promoter")}>
+                <li onClick={() => {
+                  navigate("/promoter");
+                  closeMenu();
+                }}>
                   PROMOTOR LOGIN
                 </li>
 
               </ul>
+              
 
             )}
 
           </li>
+{/* NOTICE BELL */}
 
-          {/* NOTICE BELL */}
+<li className="nav-bell">
 
-          <li className="nav-bell">
+  <span
+    onClick={() => setShowNotice(!showNotice)}
+    style={{
+      fontSize: "20px",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "18px 22px"
+    }}
+  >
+    🔔
+  </span>
 
-            <span
-              onClick={() => setShowNotice(!showNotice)}
-            >
-              🔔
-            </span>
+  {showNotice && (
 
-            {showNotice && (
+    <div className="notice-dropdown">
 
-              <div className="notice-dropdown">
+      <div className="notice-scroll-box">
 
-                <div className="notice-scroll-box">
+        <ul className="notice-scroll-list">
 
-                  <ul className="notice-scroll-list">
+          <li>
+            <span className="new-inline">NEW</span>
 
-                    <li>
-                      <span className="new-inline">NEW</span>
-
-                      <div className="notice-text">
-                        One Time Opportunity with 50% Concession on Late Fee for Un-registered Projects.
-                      </div>
-                    </li>
-
-                    <li>
-                      <span className="new-inline">NEW</span>
-
-                      <div className="notice-text">
-                        Quarterly Updates: All the Promoters have to submit the Quarterly Update of January 2026 - March 2026 on or before 21/04/2026 without fail.
-                      </div>
-                    </li>
-
-                    <li>
-                      <span className="new-inline">NEW</span>
-
-                      <div className="notice-text">
-                        Promoters intending to obtain a project extension are advised to appear before the Authority.
-                      </div>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-
-            )}
-
+            <div className="notice-text">
+              One Time Opportunity with 50% Concession on Late Fee for Un-registered Projects.
+            </div>
           </li>
 
+          <li>
+            <span className="new-inline">NEW</span>
+
+            <div className="notice-text">
+              Quarterly Updates: All the Promoters have to submit the Quarterly Update.
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  )}
+
+</li>
         </ul>
 
       </nav>
