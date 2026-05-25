@@ -885,7 +885,12 @@ export default function ChangeRequest() {
             </div>
             <div className="changerequest-success-actions">
               <button className="changerequest-btn-secondary" onClick={resetAll}>+ Submit Another Request</button>
-              <button className="changerequest-btn-primary" onClick={() => window.location.href = "/"}>← Back to Home</button>
+              <button
+  className="changerequest-btn-primary"
+  onClick={() => navigate("/")}
+>
+  ← Back to Home
+</button>
             </div>
           </div>
         )}
