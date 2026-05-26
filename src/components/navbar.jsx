@@ -59,46 +59,59 @@ const Navbar = () => {
     <>
 
       {/* ================= TOP HEADER ================= */}
+{/* ================= TOP HEADER ================= */}
 
-      <div className="top-header">
+<div className="top-header">
 
-        {/* MOBILE MENU BUTTON */}
+  {/* FIRST ROW */}
 
-        <div
-          className="mobile-menu-btn"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          ☰
-        </div>
+  <div className="top-header-first-row">
 
-        <div className="header-center">
+    {/* LEFT SIDE */}
 
-          <p className="header-title">
+    <div className="header-center">
 
-            <img
-              src={Logo}
-              alt="APRERA Logo"
-              className="header-logo"
-            />
+      <img
+        src={Logo}
+        alt="APRERA Logo"
+        className="header-logo"
+      />
 
-            ANDHRA PRADESH REAL ESTATE REGULATORY AUTHORITY
+      <p className="header-title">
+        ANDHRA PRADESH REAL ESTATE
+        REGULATORY AUTHORITY
+      </p>
 
-          </p>
+    </div>
 
-        </div>
+    {/* RIGHT SIDE */}
 
-        <div className="top-header-right">
+    <div className="top-header-right">
 
-          <GoogleTranslate />
+      <GoogleTranslate />
 
-          <button className="search-btn">
-            SEARCH RERA PROJECTS
-          </button>
+      <button className="search-btn">
+        🔍
+      </button>
 
-        </div>
+    </div>
 
-      </div>
+  </div>
 
+  {/* SECOND ROW */}
+
+  <div className="mobile-menu-row">
+
+    <div
+      className="mobile-menu-btn"
+      onClick={() => setMobileMenuOpen(true)}
+    >
+      ☰
+    </div>
+
+  </div>
+
+</div>
       {/* ================= NAVBAR ================= */}
 
       <nav className="main-navbar">

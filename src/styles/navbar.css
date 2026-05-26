@@ -72,33 +72,83 @@
    GOOGLE TRANSLATE
 ========================================= */
 
-#google_translate_element {
-  display: flex !important;
-  align-items: center !important;
+/* RIGHT SIDE */
+
+.top-header-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
 }
 
+/* GOOGLE TRANSLATE */
+
+
+
 .goog-te-gadget {
+
   font-size: 0 !important;
+
+  width: 100%;
 }
 
 .goog-te-combo {
-  height: 32px !important;
-  padding: 0 6px;
+
+  width: 100% !important;
+
+  height: 34px !important;
+
+  font-size: 12px !important;
+
+  padding: 0 8px !important;
+
+  border-radius: 4px;
 }
 
-.goog-logo-link,
+/* SEARCH BUTTON */
+
+.search-btn {
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 18px;
+}
+/* GOOGLE TRANSLATE WATERMARK REMOVE */
+
+.goog-logo-link {
+  display: none !important;
+}
+
 .goog-te-gadget span {
   display: none !important;
 }
 
-.goog-te-banner-frame.skiptranslate {
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+iframe.skiptranslate {
   display: none !important;
 }
 
 body {
-  top: 0 !important;
+  top: 0px !important;
 }
-
 /* =========================================
    DESKTOP NAVBAR
 ========================================= */
@@ -353,10 +403,196 @@ body {
 
   /* HIDE RIGHT SIDE */
 
-  .top-header-right {
-    display: none !important;
+  /* MOBILE HEADER FIX */
+
+/* =========================================
+   MOBILE HEADER EXACT FIX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  .top-header {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    padding: 10px 12px !important;
+
+    background: #fff !important;
+
+    border-bottom: 1px solid #e5e5e5;
   }
 
+  /* TOP ROW */
+
+  .top-header-first-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  /* LOGO + TITLE */
+
+  .header-center {
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 10px;
+
+    flex: 1;
+  }
+
+  .header-logo {
+
+    width: 52px !important;
+
+    height: 52px !important;
+
+    flex-shrink: 0;
+  }
+
+  .header-title {
+
+    font-size: 11px !important;
+
+    line-height: 1.2 !important;
+
+    font-weight: 700 !important;
+
+    color: #000 !important;
+
+    text-align: left !important;
+
+    margin: 0 !important;
+
+    max-width: 170px;
+  }
+
+  /* RIGHT SIDE */
+
+  .top-header-right {
+
+  position: static !important;
+
+  transform: none !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 8px;
+}
+  /* SEARCH BUTTON */
+
+  .search-btn {
+
+    width: 38px !important;
+
+    height: 38px !important;
+
+    border-radius: 50% !important;
+
+    padding: 0 !important;
+
+    font-size: 0 !important;
+
+    background: #ff5b5b !important;
+
+    position: relative;
+  }
+
+  .search-btn::before {
+
+    content: "🔍";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 18px;
+
+    color: #fff;
+  }
+
+  /* SECOND ROW */
+
+  .mobile-menu-row {
+
+    margin-top: 12px;
+
+    width: 100%;
+  }
+
+  /* MENU BUTTON */
+
+  .mobile-menu-btn {
+
+    display: flex !important;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    background: #4f46b5;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+  }
+
+  /* TRANSLATE */
+
+#google_translate_element {
+
+  display: block !important;
+
+  width: 160px !important;
+}
+
+.goog-te-gadget {
+
+  font-size: 0 !important;
+
+  width: 100% !important;
+}
+
+.goog-te-combo {
+
+  width: 100% !important;
+
+  height: 34px !important;
+
+  font-size: 12px !important;
+
+  border-radius: 4px !important;
+
+  padding: 0 8px !important;
+}
+
+}
 }
 /* =========================================
    DESKTOP NAVBAR FIX
